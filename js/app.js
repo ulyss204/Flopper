@@ -97,7 +97,7 @@ Player.prototype.handleInput = function(key){
     if (this.y>100){
         thi.reset();
     }
-    this.x = addEventListener('touchmove', function(event) {
+    player = addEventListener('touchmove', function(event) {
   // Если 1 палец внутри элемента
         if (event.targetTouches.length == 1) {
         var touch = event.targetTouches[0];
