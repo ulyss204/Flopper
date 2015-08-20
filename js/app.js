@@ -98,15 +98,6 @@ Player.prototype.handleInput = function(key){
         thi.reset();
     }
     
-    this.addEventListener('touchmove', function(event) {
-  // Если 1 палец внутри элемента
-        if (event.targetTouches.length == 1) {
-        var touch = event.targetTouches[0];
-    // Place element where the finger is
-    obj.style.left = touch.pageX + 101;
-    obj.style.top = touch.pageY + 83;
-  }
-}, false);
 }
 
 // Now instantiate your objects.
