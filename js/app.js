@@ -106,7 +106,22 @@ Player.prototype.handleInput = function(key){
     if (this.y>100){
         thi.reset();
     }
+<<<<<<< HEAD
     return counter;
+||||||| merged common ancestors
+    
+    this.addEventListener('touchmove', function(event) {
+  // Если 1 палец внутри элемента
+        if (event.targetTouches.length == 1) {
+        var touch = event.targetTouches[0];
+    // Place element where the finger is
+    obj.style.left = touch.pageX + 101;
+    obj.style.top = touch.pageY + 83;
+  }
+}, false);
+=======
+    
+>>>>>>> 68abbe510b48b8aa89c77294da0a150117c14bec
 }
 
 
