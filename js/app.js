@@ -8,6 +8,7 @@ var Enemy = function() {
     
     this.sprite = 'images/enemy-bug.png';
     this.reset();
+    
 }
 
 // Update the enemy's position, required method for game
@@ -16,12 +17,15 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    
     this.x += this.speed*dt;
     
     if(this.x>505){
         allEnemies.slice(allEnemies.indexOf(this),1);
         this.reset();
+        
     }
+    
 }
 
 // Draw the enemy on the screen, required method for game
@@ -29,6 +33,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 Enemy.prototype.reset = function(){
+    
     this.x = -150;
     this.y = this.getRandomY()*83 + 51;
     this.speed = this.getSpeed();
@@ -37,7 +42,7 @@ Enemy.prototype.getRandomY = function() {
     return Math.floor(Math.random() * 3);
 }
 Enemy.prototype.getSpeed = function() {
-    return Math.random() * (500 - 200) + 200;
+    return Math.random() * (200 + (counter*50) - 200) + 200;
 }
 
 // Now write your own player class
@@ -51,6 +56,7 @@ var Player = function(){
 Player.prototype.update = function(){
     if(this.y>400){
         this.reset();
+        
     }
     else {
         var self = this;
@@ -93,18 +99,24 @@ Player.prototype.handleInput = function(key){
     }
     if (this.y<0){
         this.reset();
+        counter++;
+        
+        alert(counter + "-nd level");
     }
     if (this.y>100){
         thi.reset();
     }
-    
+    return counter;
 }
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+var counter = 1;
 var allEnemies = [];
 for (var i=0;i<4 ;i++){
     allEnemies.push(new Enemy())
+    
 }
 var player = new Player();
 // Place the player object in a variable called player
