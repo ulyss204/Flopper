@@ -73,7 +73,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 Player.prototype.reset = function(){
-    this.x = 101*3;
+    this.x = 101;
     this.y = 50 *6;
 }
 Player.prototype.handleInput = function(key){
